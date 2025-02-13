@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วันวาเลนไทน์</title>
+    <title>วันวาเลนไทน์ - เนื้อหาลับ</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -16,26 +16,63 @@
             font-size: 3em;
             margin-bottom: 20px;
         }
-        p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
         }
-        .heart {
-            color: #d32f2f;
-            font-size: 4em;
-            animation: beat 1s infinite;
+        input[type="password"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #d32f2f;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #d32f2f;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <h1>สุขสันต์วันวาเลนไทน์!</h1>
-    <p>ความรักคือสิ่งสวยงามที่สุดในโลก</p>
-    <div class="heart">❤️</div>
-    <p>ด้วยรักจาก [ชื่อของคุณ]</p>
+    <div class="container">
+        <h1>สุขสันต์วันวาเลนไทน์!</h1>
+        <p>กรุณากรอกรหัสผ่านเพื่อดูเนื้อหาลับ:</p>
+        <input type="password" id="password" placeholder="รหัสผ่าน">
+        <button onclick="checkPassword()">เข้าสู่ระบบ</button>
+        <p id="error" style="color: red; display: none;">รหัสผ่านไม่ถูกต้อง!</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            // ตั้งรหัสผ่านที่ต้องการ
+            const correctPassword = "iloveyou";
+
+            // รับค่ารหัสผ่านจากผู้ใช้
+            const userPassword = document.getElementById("password").value;
+
+            // ตรวจสอบรหัสผ่าน
+            if (userPassword === correctPassword) {
+                // เปลี่ยนหน้าเว็บไปยังหน้ารูปภาพ
+                window.location.href = "image-page.html"; // เปลี่ยนเป็นชื่อไฟล์หน้าที่ต้องการ
+            } else {
+                // แสดงข้อความผิดพลาด
+                document.getElementById("error").style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
