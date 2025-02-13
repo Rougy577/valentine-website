@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตอบคำถามวาเลนไทน์</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
+            color: #d32f2f;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #d32f2f;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #d32f2f;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>รูปภาพวาเลนไทน์ ❤️</h1>
+        <img src="valentine-image.jpg" alt="รูปภาพวาเลนไทน์">
+        <p>นี่คือรูปภาพพิเศษสำหรับคุณ!</p>
+
+        <!-- ส่วนตอบคำถาม -->
+        <h2>ตอบคำถามวาเลนไทน์</h2>
+        <p>คุณรู้สึกอย่างไรกับรูปภาพนี้?</p>
+        <input type="text" id="answer" placeholder="พิมพ์คำตอบของคุณที่นี่...">
+        <button onclick="checkAnswer()">ส่งคำตอบ</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const userAnswer = document.getElementById("answer").value.toLowerCase();
+            const resultDiv = document.getElementById("result");
+
+            // ตรวจสอบคำตอบ
+            if (userAnswer.includes("รัก") || userAnswer.includes("love")) {
+                resultDiv.innerHTML = "❤️ คุณรู้สึกรักกับรูปภาพนี้! ขอให้มีความสุขในวันวาเลนไทน์นะครับ ❤️";
+            } else if (userAnswer.includes("สุข") || userAnswer.includes("happy")) {
+                resultDiv.innerHTML = "😊 คุณรู้สึกสุขกับรูปภาพนี้! ขอให้ยิ้มตลอดไปนะครับ 😊";
+            } else if (userAnswer.includes("ประทับใจ") || userAnswer.includes("impressed")) {
+                resultDiv.innerHTML = "🌟 คุณรู้สึกประทับใจกับรูปภาพนี้! ขอให้มีความสุขมากๆ นะครับ 🌟";
+            } else {
+                resultDiv.innerHTML = "🤔 คำตอบของคุณน่าสนใจมาก! ขอให้วันวาเลนไทน์นี้เป็นวันที่พิเศษสำหรับคุณนะครับ 🤔";
+            }
+        }
+    </script>
+</body>
+</html>
