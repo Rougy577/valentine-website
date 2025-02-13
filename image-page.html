@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วันวาเลนไทน์ - เนื้อหาลับ</title>
+    <title>ตอบคำถามวาเลนไทน์</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -23,7 +23,13 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: inline-block;
         }
-        input[type="password"] {
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
             padding: 10px;
             font-size: 1em;
             border: 2px solid #d32f2f;
@@ -42,35 +48,41 @@
         button:hover {
             background-color: #b71c1c;
         }
-        .hidden {
-            display: none;
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #d32f2f;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>สุขสันต์วันวาเลนไทน์!</h1>
-        <p>กรุณากรอกรหัสผ่านเพื่อดูเนื้อหาลับ:</p>
-        <input type="password" id="password" placeholder="รหัสผ่าน">
-        <button onclick="checkPassword()">เข้าสู่ระบบ</button>
-        <p id="error" style="color: red; display: none;">รหัสผ่านไม่ถูกต้อง!</p>
+        <h1>รูปภาพวาเลนไทน์ ❤️</h1>
+        <img src="valentine-image.jpg" alt="รูปภาพวาเลนไทน์">
+        <p>นี่คือรูปภาพพิเศษสำหรับคุณ!</p>
+
+        <!-- ส่วนตอบคำถาม -->
+        <h2>ตอบคำถามวาเลนไทน์</h2>
+        <p>คุณรู้สึกอย่างไรกับรูปภาพนี้?</p>
+        <input type="text" id="answer" placeholder="พิมพ์คำตอบของคุณที่นี่...">
+        <button onclick="checkAnswer()">ส่งคำตอบ</button>
+        <div id="result" class="result"></div>
     </div>
 
     <script>
-        function checkPassword() {
-            // ตั้งรหัสผ่านที่ต้องการ
-            const correctPassword = "iloveyou";
+        function checkAnswer() {
+            const userAnswer = document.getElementById("answer").value.toLowerCase();
+            const resultDiv = document.getElementById("result");
 
-            // รับค่ารหัสผ่านจากผู้ใช้
-            const userPassword = document.getElementById("password").value;
-
-            // ตรวจสอบรหัสผ่าน
-            if (userPassword === correctPassword) {
-                // เปลี่ยนหน้าเว็บไปยังหน้ารูปภาพ
-                window.location.href = "image-page.html"; // เปลี่ยนเป็นชื่อไฟล์หน้าที่ต้องการ
+            // ตรวจสอบคำตอบ
+            if (userAnswer.includes("รัก") || userAnswer.includes("love")) {
+                resultDiv.innerHTML = "❤️ คุณรู้สึกรักกับรูปภาพนี้! ขอให้มีความสุขในวันวาเลนไทน์นะครับ ❤️";
+            } else if (userAnswer.includes("สุข") || userAnswer.includes("happy")) {
+                resultDiv.innerHTML = "😊 คุณรู้สึกสุขกับรูปภาพนี้! ขอให้ยิ้มตลอดไปนะครับ 😊";
+            } else if (userAnswer.includes("ประทับใจ") || userAnswer.includes("impressed")) {
+                resultDiv.innerHTML = "🌟 คุณรู้สึกประทับใจกับรูปภาพนี้! ขอให้มีความสุขมากๆ นะครับ 🌟";
             } else {
-                // แสดงข้อความผิดพลาด
-                document.getElementById("error").style.display = "block";
+                resultDiv.innerHTML = "🤔 คำตอบของคุณน่าสนใจมาก! ขอให้วันวาเลนไทน์นี้เป็นวันที่พิเศษสำหรับคุณนะครับ 🤔";
             }
         }
     </script>
